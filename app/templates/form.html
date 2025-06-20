@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contactez-nous</title>
+</head>
+<body>
+    <h1>Formulaire de contact</h1>
+    <form method="POST">
+        <label>Prénom :
+            <input type="text" name="prenom" required>
+        </label><br><br>
+
+        <label>Nom :
+            <input type="text" name="nom" required>
+        </label><br><br>
+
+        <label>Email :
+            <input type="email" name="email" required>
+        </label><br><br>
+
+        <label>Téléphone :
+            <input type="tel" name="telephone">
+        </label><br><br>
+
+        <label>Sujet :
+            <select name="sujet">
+                <option value="info">Demande d'information</option>
+                <option value="support">Support technique</option>
+                <option value="autre">Autre</option>
+            </select>
+        </label><br><br>
+
+        <label>Message :<br>
+            <textarea name="message" rows="4" cols="40" required></textarea>
+        </label><br><br>
+
+        <label>
+            <input type="checkbox" name="consentement" required>
+            J'accepte que mes données soient utilisées pour me recontacter.
+        </label><br><br>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+</body>
+</html>
