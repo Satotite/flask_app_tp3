@@ -70,7 +70,7 @@ Ce test nécessite que l'application Flask soit démarrée localement (`localhos
 
 ##  CI/CD avec Jenkins
 
-### 🔧 Jenkinsfile
+###  Jenkinsfile
 
 Le pipeline Jenkins contient les étapes suivantes :
 
