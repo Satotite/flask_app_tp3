@@ -7,7 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 def test_formulaire_selenium():
     options = Options()
     options.headless = True
-    options.binary_location = "/usr/bin/firefox"
 
     driver = webdriver.Firefox(options=options)
     try:
