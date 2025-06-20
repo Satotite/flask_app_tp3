@@ -1,4 +1,4 @@
-# 📄 README - Application Flask avec Tests et CI/CD
+ Application Flask avec Tests et CI/CD
 
 ## Fonctionnalités de l'application
 
