@@ -12,3 +12,4 @@ def test_est_valide():
     assert est_valide("Salma", "", "salma@test.com", True) is False
     assert est_valide("Salma", "Totite", "invalidemail", True) is False
     assert est_valide("Salma", "Totite", "salma@test.com", False) is False
+print("Test lancé depuis GitHub Actions")
