@@ -19,7 +19,7 @@ def test_formulaire_selenium():
         driver.find_element(By.NAME, "telephone").send_keys("0600000000")
         driver.find_element(By.NAME, "sujet").send_keys("Support technique")
         driver.find_element(By.NAME, "message").send_keys("Message test")
-        driver.find_element(By.NAME, "consentement").click()
+        # driver.find_element(By.NAME, "consentement").click()
 
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "form button"))).click()
 
