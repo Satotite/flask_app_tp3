@@ -22,3 +22,7 @@ def test_telephone_valide():
     assert telephone_valide("") is False
     assert telephone_valide("12345") is False
 
+def valider_formulaire(data):
+    return est_valide(data["prenom"], data["nom"], data["email"], data["consentement"]) and telephone_valide(data["telephone"])
+
+
