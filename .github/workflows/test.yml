@@ -14,30 +14,37 @@ jobs:
     - name: Cloner le code
       uses: actions/checkout@v3
 
-    - name:  Installer Python
+    - name: Installer Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
 
-    - name: Installer les dépendances
+    - name:  Installer les dépendances
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pytest pytest-html
+        pip install pytest pytest-html selenium
 
-    - name: Lancer les tests unitaires
+    - name:  Lancer les tests unitaires
       run: |
         pytest tests/test_logiciel.py --html=rapport_unitaires.html
 
-    - name:  Lancer le test Selenium (headless)
+    - name:  Installer Firefox manuellement
       run: |
         sudo apt-get update
-        sudo apt-get install -y firefox xvfb
+        sudo apt-get install -y wget tar xvfb
+        wget -O firefox.tar.bz2 https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=fr
+        tar -xjf firefox.tar.bz2
+        sudo mv firefox /opt/firefox
+        sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
+
+    - name:  Lancer le test Selenium (headless)
+      run: |
         Xvfb :99 -screen 0 1920x1080x24 &
         export DISPLAY=:99
         pytest tests/test_selenium.py --html=rapport_fonctionnel.html
 
-    - name:  Uploader les rapports
+    - name: Uploader les rapports
       uses: actions/upload-artifact@v4
       with:
         name: rapports-tests
