@@ -2,67 +2,97 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Contactez-nous</title>
+    <title>Formulaire de contact</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 40px;
-        background-color: #f9f9f9;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
 
-    h1 {
-        color: #333;
-    }
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
 
-    form {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        max-width: 500px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-    input, select, textarea {
-        width: 100%;
-        padding: 8px;
-        margin-top: 6px;
-        margin-bottom: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 500;
+        }
 
-    button {
-        background-color: #007bff;
-        color: white;
-        padding: 10px 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 4px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
 
-    button:hover {
-        background-color: #0056b3;
-    }
-</style>
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Formulaire de contact</h1>
     <form method="POST">
+        <h1>Formulaire de contact</h1>
+
         <label>Prénom :
             <input type="text" name="prenom" required>
-        </label><br><br>
+        </label>
 
         <label>Nom :
             <input type="text" name="nom" required>
-        </label><br><br>
+        </label>
 
         <label>Email :
             <input type="email" name="email" required>
-        </label><br><br>
+        </label>
 
         <label>Téléphone :
             <input type="tel" name="telephone">
-        </label><br><br>
+        </label>
 
         <label>Sujet :
             <select name="sujet">
@@ -70,22 +100,22 @@
                 <option value="support">Support technique</option>
                 <option value="autre">Autre</option>
             </select>
-        </label><br><br>
+        </label>
 
-        <label>Message :<br>
-            <textarea name="message" rows="4" cols="40" required></textarea>
-        </label><br><br>
+        <label>Message :
+            <textarea name="message" rows="4" required></textarea>
+        </label>
 
         <label>
             <input type="checkbox" name="consentement" required>
             J'accepte que mes données soient utilisées pour me recontacter.
-        </label><br><br>
+        </label>
 
         <button type="submit">Envoyer</button>
-    </form>
 
-    {% if message %}
-        <p style="color: green;">{{ message }}</p>
-    {% endif %}
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </form>
 </body>
 </html>
