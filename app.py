@@ -4,7 +4,3 @@ app = create_app()
 
 if __name__ == "__main__":
     app.run(debug=True)
-@app.route('/')
-def home():
-    print("Webhook déclenché automatiquement ")
-    return "Hello, Jenkins!"
